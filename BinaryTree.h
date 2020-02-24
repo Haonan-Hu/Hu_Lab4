@@ -7,9 +7,7 @@ class BinaryTree
 {
 public:
   BinaryTree();
-  ~BinaryTree(){
-  clear();
-  };
+  ~BinaryTree();
 
   bool isFull()const;
   void addMovie(std::string title, double rating);
@@ -28,5 +26,7 @@ public:
 private:
   BinaryNode* m_root;
   int m_height;
+  void recClear(BinaryNode* curSubTree);
+  void recAdd(BinaryNode* curSubTree, BinaryNode* movie);
 };
 #endif
