@@ -20,6 +20,7 @@ public:
   * @post run the user controled panel
   */
   void run();
-
+private:
+  BinaryTree m_tree;
 };
 #endif
