@@ -84,6 +84,10 @@ void executive::run()
   //     std::cout << "..................................\n\n";
   //   }
   // }
+  m_tree.addMovie("Johnwick",4.3);
+  m_tree.addMovie("Johnwick1",4.4);
+  m_tree.addMovie("Johnwick2",4.1);
+  m_tree.addMovie("Johnwick3",4.0);
+  m_tree.addMovie("Johnwick4",4.6);
 
-  
 }
