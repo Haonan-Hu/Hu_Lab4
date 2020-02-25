@@ -91,13 +91,27 @@ void executive::run()
   m_tree.addMovie("starwars",5.0);
   m_tree.addMovie("psycho",4.4);
   m_tree.addMovie("argo",4.8);
+  m_tree.addMovie("avatar",4.1);
 
-  // BinaryNode* temp = m_tree.getRoot();
-  // BinaryNode* temp1 = temp->getLeft();
-  // BinaryNode* temp2 = temp->getRight();
-  //
-  // std::cout << temp->getTitle() << temp->getRating() << '\n';
-  // std::cout << temp1->getTitle() << temp1->getRating() << '\n';
+  BinaryNode* temp = m_tree.getRoot();
 
+  BinaryNode* temp1 = temp->getLeft();
+  BinaryNode* temp2 = temp->getRight();
+
+  BinaryNode* temp3 = temp1->getLeft();
+  BinaryNode* temp4 = temp1->getRight();
+  BinaryNode* temp5 = temp2->getLeft();
+  BinaryNode* temp6 = temp2->getRight();
+
+  BinaryNode* temp7 = temp3->getLeft();
+
+  std::cout << temp->getTitle() << temp->getRating() << '\n';
+  std::cout << temp1->getTitle() << temp1->getRating() << '\n';
+  std::cout << temp2->getTitle() << temp2->getRating() << '\n';
+  std::cout << temp3->getTitle() << temp3->getRating() << '\n';
+  std::cout << temp4->getTitle() << temp4->getRating() << '\n';
+  std::cout << temp5->getTitle() << temp5->getRating() << '\n';
+  std::cout << temp6->getTitle() << temp6->getRating() << '\n';
+  std::cout << temp7->getTitle() << temp7->getRating() << '\n';
   // m_tree.Preorder();
 }

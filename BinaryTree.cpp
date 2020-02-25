@@ -54,55 +54,71 @@ void BinaryTree::addMovie(std::string title, double rating)
 {
   BinaryNode* temp = new BinaryNode(title,rating);
   //add empty tree
-  if(m_root == nullptr)
-  {
-    m_root = temp;
-    //std::cout << temp->getTitle() << temp->getRating() << '\n';
-  }
-  else //Not empty tree
-  {
-    recAdd(m_root,temp);
-  }
+  m_root = recAdd(m_root,temp);
 }
 
-void BinaryTree::recAdd(BinaryNode* curSubTree, BinaryNode* movie)
+BinaryNode* BinaryTree::recAdd(BinaryNode* curSubTree, BinaryNode* movie)
 {
+    if(curSubTree == nullptr)
+    {
+      return movie;
+    }
+
     BinaryNode* l_child = curSubTree->getLeft();
     BinaryNode* r_child = curSubTree->getRight();
+
     //left child of curSubTree is nullptr
     if(l_child == nullptr)
     {
-      l_child = movie;
-      //std::cout << movie->getTitle() << movie->getRating() << '\n';
+      curSubTree->setLeft(movie);
+      return curSubTree;
+    }
+    //right child of curSubTree is nullptr
+    if(r_child == nullptr)
+    {
+      curSubTree->setRight(movie);
+      return curSubTree;
+    }
+
+    //left child of curSubTree only have left leaf
+    if(l_child->getLeft() == nullptr)
+    {
+      l_child->setLeft(movie);
+      curSubTree->setLeft(l_child);
+      return curSubTree;
     }
     //left child of curSubTree only have left leaf
-    if(l_child->getLeft() != nullptr)
+    if(l_child->getRight() == nullptr && l_child->getLeft() != nullptr)
     {
       l_child->setRight(movie);
-      //std::cout << movie->getTitle() << movie->getRating() << '\n';
+      curSubTree->setLeft(l_child);
+      return curSubTree;
     }
     //left child of curSubTree have both leaves, then check r_child
     if(l_child->getLeft() != nullptr && l_child->getRight() != nullptr)
     {
-      //right child of curSubTree is nullptr
-      if(r_child == nullptr)
+      //right child of curSubTree only have left leaf
+      if(r_child->getLeft() == nullptr)
       {
-        r_child = movie;
-        //std::cout << movie->getTitle() << movie->getRating() << '\n';
+        r_child->setLeft(movie);
+        curSubTree->setRight(r_child);
+        return curSubTree;
       }
       //right child of curSubTree only have left leaf
-      if(r_child->getLeft() != nullptr)
+      if(r_child->getLeft() != nullptr && r_child->getRight() == nullptr)
       {
         r_child->setRight(movie);
-        //std::cout << movie->getTitle() << movie->getRating() << '\n';
+        curSubTree->setRight(r_child);
+        return curSubTree;
       }
-      //reft child of curSubTree have both leaves, then check next level
-      if(r_child->getLeft() != nullptr && r_child->getRight() != nullptr)
+      //right child of curSubTree have both leaves, then check next level
+      if(l_child->getLeft() != nullptr && l_child->getRight() != nullptr)
       {
-        recAdd(l_child->getLeft(),movie);
-        recAdd(r_child->getRight(),movie);
+        recAdd(l_child,movie);
+        recAdd(r_child,movie);
       }
     }
+    return curSubTree;
 }
 
 BinaryNode* BinaryTree::getRoot()
