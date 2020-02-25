@@ -2,6 +2,7 @@
 #define BINARY_TREE_H
 
 #include "BinaryNode.h"
+#include <iostream>
 
 class BinaryTree
 {
@@ -23,10 +24,12 @@ public:
   void Levelorder();
 
   void clear();
+  BinaryNode* getRoot();
 private:
   BinaryNode* m_root;
   int m_height;
   void recClear(BinaryNode* curSubTree);
   void recAdd(BinaryNode* curSubTree, BinaryNode* movie);
+  void PreorderTreversal(BinaryNode* curSubTree);
 };
 #endif

@@ -85,9 +85,19 @@ void executive::run()
   //   }
   // }
   m_tree.addMovie("Johnwick",4.3);
-  m_tree.addMovie("Johnwick1",4.4);
-  m_tree.addMovie("Johnwick2",4.1);
-  m_tree.addMovie("Johnwick3",4.0);
-  m_tree.addMovie("Johnwick4",4.6);
+  m_tree.addMovie("godzilla",4.5);
+  m_tree.addMovie("joker",4.6);
+  m_tree.addMovie("jurassicpark",4.2);
+  m_tree.addMovie("starwars",5.0);
+  m_tree.addMovie("psycho",4.4);
+  m_tree.addMovie("argo",4.8);
 
+  // BinaryNode* temp = m_tree.getRoot();
+  // BinaryNode* temp1 = temp->getLeft();
+  // BinaryNode* temp2 = temp->getRight();
+  //
+  // std::cout << temp->getTitle() << temp->getRating() << '\n';
+  // std::cout << temp1->getTitle() << temp1->getRating() << '\n';
+
+  // m_tree.Preorder();
 }
