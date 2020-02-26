@@ -10,8 +10,8 @@ public:
 
   std::string getTitle()const;
   void setTitle(std::string title);
-  
-  double getRating()const;
+
+  float getRating()const;
   void setRating(double rating);
 
   BinaryNode* getLeft()const;
@@ -20,9 +20,10 @@ public:
   BinaryNode* getRight()const;
   void setRight(BinaryNode* right);
 
+  bool isFull();
 private:
   std::string m_title;
-  double m_rating;
+  float m_rating;
   BinaryNode* m_left;
   BinaryNode* m_right;
 };

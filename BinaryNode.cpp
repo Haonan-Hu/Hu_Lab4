@@ -18,7 +18,7 @@ void BinaryNode::setTitle(std::string title)
   m_title = title;
 }
 
-double BinaryNode::getRating()const
+float BinaryNode::getRating()const
 {
   return m_rating;
 }
@@ -46,4 +46,17 @@ BinaryNode* BinaryNode::getRight()const
 void BinaryNode::setRight(BinaryNode* right)
 {
   m_right = right;
+}
+
+bool BinaryNode::isFull()
+{
+  if(m_left != nullptr && m_right != nullptr)
+  {
+    if(m_left->getLeft() != nullptr && m_left->getRight() != nullptr &&
+       m_right->getLeft() != nullptr && m_right->getRight() != nullptr)
+       {
+         return true;
+       }
+  }
+  return false;
 }

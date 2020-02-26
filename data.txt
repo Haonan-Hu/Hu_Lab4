@@ -1,0 +1,14 @@
+johnwick,4.3
+godzilla,4.5
+joker,4.6
+jurassicpark,4.2
+starwars,5
+psycho,4.4,
+argo,4.8
+johnwick1,4.3
+godzilla1,4.5
+joker1,4.6
+jurassicpark1,4.2
+starwars1,5
+psycho1,4.4,
+argo1,4.8
